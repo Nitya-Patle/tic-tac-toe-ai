@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 25px;
+    border-radius: 18px;
+    backdrop-filter: blur(12px);
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+h1 {
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 18px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: rgba(255,255,255,0.18);
+    font-size: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: transform 0.15s ease, background 0.2s ease;
+    user-select: none;
+}
+
+.cell:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+}
+
+.cell:active {
+    transform: scale(0.95);
+}
+
+.cell.filled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.status {
+    margin-bottom: 16px;
+    font-weight: bold;
+    min-height: 22px;
+}
+
+button {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+    padding: 11px 24px;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ====== Game Over Lock ====== */
+.game-over .cell {
+    pointer-events: none;
+}
+
+/* ====== Mobile Responsive ====== */
+@media (max-width: 400px) {
+    .container {
+        width: 92%;
+    }
+}
